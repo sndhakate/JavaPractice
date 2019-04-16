@@ -1,0 +1,18 @@
+package com.practicePrograms;
+
+import java.util.Hashtable;
+
+public class HT {
+	
+	public static void main(String[] args) {
+		
+		Hashtable<Object, Object> ht = new Hashtable<>();
+		ht.put(101, "Ashish");
+		ht.put(102, "Akshay");
+		ht.put(101, "Ashish");
+		
+		System.out.println(ht);
+		
+	}
+
+}

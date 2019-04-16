@@ -1,0 +1,54 @@
+package com.collection.practice;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class DemoArrayList {
+	public static void main(String[] args) {
+		
+		ArrayList<Object> al = new ArrayList<>();
+		al.add("100");
+		al.add("swapnil");
+		al.add("79");
+		al.add("a");
+		al.add("Rahul");
+		
+		System.out.println(al.size());
+		System.out.println(al);
+		
+		al.remove(1); //remove by indexing
+		System.out.println(al);
+		
+//		al.clone();
+//		System.out.println(al);
+		
+		
+		System.out.println("--------iterate using for loop------");
+		
+		for (Object object : al) {
+			System.out.println(object);			
+		}
+		
+		System.out.println("---------iterate using iterator---------");
+		
+		Iterator<Object> itr = al.iterator();
+		while(itr.hasNext()) {
+			Object o = itr.next();
+			String s = (String) o;
+			System.out.println(s);
+		
+		System.out.println("--------------iterate using ListIterator");
+		
+		ListIterator<Object> it = al.listIterator();
+		while(it.hasNext()) {
+			Object obj = it.next();
+			String s1 = (String) obj;
+			System.out.println(s1);
+			}		
+		
+		}		
+		
+	}
+
+}

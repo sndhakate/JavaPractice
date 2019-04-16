@@ -1,0 +1,23 @@
+package jdbcDemo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBUtil {
+	public static Connection getOracleConnection() {
+		Connection con = null;
+		try {
+			Class.forName("oracle.jdbc.driver.orale driver");
+			
+			DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521.XE", "system", "abc");
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con;
+		
+		
+	}
+
+}

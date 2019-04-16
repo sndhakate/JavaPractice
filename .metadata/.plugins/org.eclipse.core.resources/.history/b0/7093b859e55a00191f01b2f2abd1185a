@@ -1,0 +1,22 @@
+package com.practicePrograms;
+
+public class FibonacciUsingWhileLoop {
+	
+	public static void main(String[] args) {
+		
+		int count=7;
+		int a=0, b=1;
+		System.out.print("Fibonacci Series of" +count+" numbers:");
+		
+		int i=1;
+		while (i<=count) {
+			System.out.println(a+"  ");
+			int sumOfPrevTwo = a+b;
+			a=b;
+			b=sumOfPrevTwo;
+			i++;
+		}
+		
+	}
+
+}

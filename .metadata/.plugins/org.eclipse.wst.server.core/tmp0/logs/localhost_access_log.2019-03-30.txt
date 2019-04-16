@@ -1,0 +1,4 @@
+127.0.0.1 - - [30/Mar/2019:18:43:04 +0530] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [30/Mar/2019:18:43:05 +0530] "GET /ServletJspDemo/ServletDemo HTTP/1.1" 500 1397
+0:0:0:0:0:0:0:1 - - [30/Mar/2019:18:43:45 +0530] "GET /ServletJspDemo/SignIn.html HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Mar/2019:18:43:56 +0530] "GET /ServletJspDemo/ServletDemo?uname=swpnl&password=123456 HTTP/1.1" 200 39

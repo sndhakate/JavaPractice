@@ -1,0 +1,75 @@
+package com.JspServ;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class LoginServlet
+ */
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("I am in Service....");
+		String un = request.getParameter("username");
+	//	String pwd = request.getParameter("password");
+		
+		System.out.println("Login data received........" + un  );
+		
+		boolean isExist = false;
+		try {
+			Class.forName("com.mysql.mysql.Driver");
+		Connection con = null;//DriverManager.getConnection(url, user, password);
+		Statement stmt = con.createStatement();
+		String sql = "Select username and password from users where uname" + un;
+		ResultSet rs = stmt.executeQuery(sql);
+		if (rs.next()) {
+			isExist=true;
+		}
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (un.equals("jbk") ) {
+			String names [] = new String [3];
+			names [0]="1111";
+			names[1]= "2222";
+			names[2]= "3333";
+			
+			request.setAttribute("data", names );
+			System.out.println("I'm in if......");
+			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+					rd.forward(request, response);
+			}		
+		else {
+			request.setAttribute("msg", "your uname and password are wrong");
+			System.out.println("I'm in else.......");
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+			rd.forward(request, response);
+		}
+	}
+}
